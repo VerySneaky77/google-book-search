@@ -4,7 +4,6 @@ import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import "./App.css";
 
 class App extends Component {
   render() {
