@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const booksController = require("../../controllers/booksController");
+const libraryController = require("../../controllers/libraryController");
 
 // Matches with "/api/books"
 router.route("/")
@@ -13,4 +14,16 @@ router
   .put(booksController.update)
   .delete(booksController.remove);
 
-module.exports = router;
+  // Matches with "/api/books/google-library"
+  router.route("/google-library")
+    .get(libraryController.findAll)
+    .post(libraryController.create);
+  
+  // Matches with "/api/books/google-library/:title"
+  router
+    .route("/google-library/:title")
+    .get(libraryController.findByTitle)
+    .put(libraryController.update)
+    .delete(libraryController.remove);
+  
+  module.exports = router;
